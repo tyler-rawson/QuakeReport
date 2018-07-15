@@ -1,42 +1,86 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.android.quakereport;
 
 /**
- * {@link Earthquake} represents a location in Portland.
+ * An {@link Earthquake} object contains information related to a single earthquake.
  */
 public class Earthquake {
-    private double mEarthquakeMagnitude;
-    private String mEarthquakeLocation;
-    private Long mTimeInMilliseconds;
-    private String url;
-
 
     /**
-     * Create an object that contains a title, hours, address, phone number, and image.
-     *
-     * @param earthquakeMagnitude is the magnitude of the earthquake.
-     * @param earthquakeLocation  is the title of the earthquake.
-     * @param timeInMilliseconds  is the time in milliseconds (from the Epoch) when the earthquake happened.
+     * Magnitude of the earthquake
      */
-    public Earthquake(double earthquakeMagnitude, String earthquakeLocation, Long timeInMilliseconds, String url) {
-        this.mEarthquakeMagnitude = earthquakeMagnitude;
-        this.mEarthquakeLocation = earthquakeLocation;
-        this.mTimeInMilliseconds = timeInMilliseconds;
-        this.url = url;
+    private double mMagnitude;
+
+    /**
+     * Location of the earthquake
+     */
+    private String mLocation;
+
+    /**
+     * Time of the earthquake
+     */
+    private long mTimeInMilliseconds;
+
+    /**
+     * Website URL of the earthquake
+     */
+    private String mUrl;
+
+    /**
+     * Constructs a new {@link Earthquake} object.
+     *
+     * @param magnitude          is the magnitude (size) of the earthquake
+     * @param location           is the location where the earthquake happened
+     * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
+     *                           earthquake happened
+     * @param url                is the website URL to find more details about the earthquake
+     */
+    public Earthquake(double magnitude, String location, long timeInMilliseconds, String url) {
+        mMagnitude = magnitude;
+        mLocation = location;
+        mTimeInMilliseconds = timeInMilliseconds;
+        mUrl = url;
     }
 
-    public String getmEarthquakeLocation() {
-        return mEarthquakeLocation;
+    /**
+     * Returns the magnitude of the earthquake.
+     */
+    public double getMagnitude() {
+        return mMagnitude;
     }
 
-    public double getmEarthquakeMagnitude() {
-        return mEarthquakeMagnitude;
+    /**
+     * Returns the location of the earthquake.
+     */
+    public String getLocation() {
+        return mLocation;
     }
 
-    public Long getmTimeInMilliseconds() {
+    /**
+     * Returns the time of the earthquake.
+     */
+    public long getTimeInMilliseconds() {
         return mTimeInMilliseconds;
     }
 
+    /**
+     * Returns the website URL to find more information about the earthquake.
+     */
     public String getUrl() {
-        return url;
+        return mUrl;
     }
 }
